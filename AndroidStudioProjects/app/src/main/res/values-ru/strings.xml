@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Солнечная погодка</string>
+    <string name="weather_button">Проверить погоду</string>
+    <string-array name="weather">
+        <item>+10 Сегодня Дождь</item>
+        <item>+20 Сегодня Солнечно</item>
+    </string-array>
+    <string-array name="cities">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Париж</item>
+        <item>Мадрид</item>
+    </string-array>
+</resources>
