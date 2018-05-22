@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Sunny Weather</string>
+    <string name="temp">+21 It is rainy today</string>
+</resources>

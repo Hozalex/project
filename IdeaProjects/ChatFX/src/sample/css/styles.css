@@ -1,0 +1,29 @@
+#buttonSend{
+-fx-color: dimgray;
+-fx-focus-color: darkgray;
+}
+
+#buttonSend:pressed {
+-fx-background-color: darkgray;
+}
+
+#textArea {
+-fx-focus-color: darkgray;
+-fx-text-fill:green;
+}
+
+#textField{
+-fx-focus-color: darkgray;
+
+}
+
+#vbox{
+-fx-background-color: lightgray;
+-fx-padding:5;
+-fx-spacing:5;
+}
+
+#hbox{
+-fx-padding:5;
+-fx-spacing:5;
+}
