@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Sunny Weather</string>
-    <string name="temp">+21 It is rainy today</string>
+    <string name="weather_button">Check the weather</string>
+    <string-array name="weather">
+        <item>+10 IT IS RAINY TODAY</item>
+        <item>+20 IT IS SUNNY TODAY</item>
+    </string-array>
+    <string-array name="cities">
+        <item>Moscow</item>
+        <item>Saint-Petersburg</item>
+        <item>Paris</item>
+        <item>Madrid</item>
+    </string-array>
 </resources>

@@ -13,17 +13,41 @@
         android:background="@drawable/rainy"
         android:scaleType="centerCrop" />
 
+    <Spinner
+        android:id="@+id/cities_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/colorBackground"
+        android:entries="@array/cities"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#80000000"
-        android:text="@string/temp"
-        android:textColor="#ffffff"
+        android:background="@color/colorBackground"
+        android:textColor="@color/colorText"
         android:textSize="38sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="@id/image"
         app:layout_constraintEnd_toEndOf="@id/image"
         app:layout_constraintStart_toStartOf="@id/image"
         app:layout_constraintTop_toTopOf="@id/image" />
+
+    <Button
+        android:id="@+id/check_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/colorBackground"
+        android:padding="8dp"
+        android:text="@string/weather_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
