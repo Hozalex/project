@@ -12,7 +12,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private var city: String? = null
-    private val CITY_NAME: String = ""
+    private val CITY_NAME: String = "City"
     private lateinit var settings: SharedPreferences
     private lateinit var spinner: Spinner
     private lateinit var button: Button
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         if (settings.contains(CITY_NAME)) {
             var checkCity: String = settings.getString(CITY_NAME, "")
             var cityArray: Array<String> = resources.getStringArray(R.array.cities)
-            var index: Int = 0
+            var index = 0
             for (item in cityArray) {
                 if (checkCity.equals(item)) {
                     index = cityArray.indexOf(item)
