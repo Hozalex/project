@@ -1,17 +1,12 @@
 package HomeWork5;
 
 
-import java.util.ArrayList;
-import java.util.SimpleTimeZone;
-
 public class Main {
 
 
     static final int SIZE = 10000000;
     static final int HALFSIZE = SIZE / 2;
     static float[] arr;
-    static ArrayList arrOfArr;
-    static ArrayList threads;
 
 
     public static void main(String[] args) {

@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51690b38-d0d3-494c-af56-e40b10c16870" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Competitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Human.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Obstacle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork1/Team.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork2/ExceptionArray/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork2/MyException/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork2/MyException/MyArrayDataException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork2/MyException/MyArraySizeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork3/array/MyArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork3/contacts/Contacts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeWork5/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../AndroidStudioProjects/Alarm/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidStudioProjects/Alarm/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JAVA1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JAVA1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/HomeWork6/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVA2/HomeWork5/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVA2/HomeWork5/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVA2/HomeWork5/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVA2/HomeWork5/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVA2/HomeWork5/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVA2/HomeWork5/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeWork5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork5/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/HomeWork5/Main.java">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/HomeWork6/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="480">
+              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,6 +79,7 @@
         <option value="$PROJECT_DIR$/src/HomeWork3/Chat.java" />
         <option value="$PROJECT_DIR$/src/HomeWork4/Chat.java" />
         <option value="$PROJECT_DIR$/src/HomeWork5/Main.java" />
+        <option value="$PROJECT_DIR$/src/HomeWork6/Server.java" />
       </list>
     </option>
   </component>
@@ -109,6 +94,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,11 +107,16 @@
               <item name="JAVA2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="JAVA2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JAVA2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="HomeWork6" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -155,7 +146,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Server">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -214,13 +205,13 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="MyArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HomeWork3.array.MyArray" />
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HomeWork6.Server" />
       <module name="JAVA2" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="HomeWork3.array.*" />
+          <option name="PATTERN" value="HomeWork6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -267,19 +258,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.MyArray" />
       <item itemvalue="Application.Chat" />
       <item itemvalue="Application.Chat (1)" />
       <item itemvalue="Application.Chat (2)" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Chat (2)" />
         <item itemvalue="Application.Chat (1)" />
         <item itemvalue="Application.Chat" />
-        <item itemvalue="Application.MyArray" />
       </list>
     </recent_temporary>
   </component>
@@ -298,6 +289,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="702" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -309,10 +301,10 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34234235" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32972974" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25151977" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25607902" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -330,14 +322,14 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2743837" />
       <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11069519" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2743837" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -347,7 +339,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Messages" order="0" />
@@ -367,6 +359,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/HomeWork5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/HomeWork4/Chat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -569,10 +568,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-10.0.1/lib/src.zip!/java.base/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="528" column="30" selection-start-line="528" selection-start-column="30" selection-end-line="528" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/HomeWork5/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="312">
+          <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HomeWork6/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
