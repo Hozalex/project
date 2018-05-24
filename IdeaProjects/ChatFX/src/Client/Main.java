@@ -1,4 +1,4 @@
-package sample;
+package Client;
 
 import javafx.application.Application;
 
@@ -17,7 +17,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         Scene sc = new Scene(root, 300, 400);
         primaryStage.setScene(sc);
-        sc.getStylesheets().add((getClass().getResource("/sample/css/styles.css")).toExternalForm());
+        sc.getStylesheets().add((getClass().getResource("/Client/css/styles.css")).toExternalForm());
         primaryStage.setMinHeight(400);
         primaryStage.setMinWidth(300);
         primaryStage.show();

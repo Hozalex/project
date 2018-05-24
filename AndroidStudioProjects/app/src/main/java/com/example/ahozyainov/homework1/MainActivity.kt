@@ -12,7 +12,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private var city: String? = null
-    private val CITY_NAME: String = "City"
+    private val CITY_NAME = "City"
     private lateinit var settings: SharedPreferences
     private lateinit var spinner: Spinner
     private lateinit var button: Button
