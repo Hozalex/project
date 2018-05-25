@@ -23,6 +23,7 @@ public class Server {
     private void serverStart() {
 
         try {
+
             server = new ServerSocket(8765);
             System.out.println("Server started...");
             socket = server.accept();
@@ -31,39 +32,64 @@ public class Server {
             out = new DataOutputStream(socket.getOutputStream());
             Scanner scanner = new Scanner(System.in);
 
-            try {
-
-                while (true) {
-
-                    String stringIn = in.readUTF();
-
-                    if (stringIn.equals("/q")) {
-                        out.writeBytes("/serverClosed ");
-                        break;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        while (true) {
+                            String stringIn = in.readUTF();
+                            if (stringIn.equals("/q")) {
+                                out.writeUTF("/serverClosed ");
+                                break;
+                            }
+                            if (!stringIn.isEmpty()) {
+                                System.out.println(stringIn);
+                            }
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        try {
+                            in.close();
+                            socket.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-
-                    System.out.println(stringIn);
-                    String stringOut = scanner.nextLine();
-                    out.writeUTF(stringOut);
-
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    in.close();
-                    out.close();
-                    socket.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            }).start();
 
-            }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        while (true) {
+                            try {
+                                String stringOut = scanner.nextLine();
+                                if (!stringOut.isEmpty()) {
+                                    out.writeUTF(stringOut);
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+
+                    } finally {
+                        try {
+                            out.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
 
