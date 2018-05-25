@@ -28,6 +28,7 @@ public class Client {
             out = new DataOutputStream(socket.getOutputStream());
             in = new DataInputStream(socket.getInputStream());
             scanner = new Scanner(System.in);
+
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -40,6 +41,12 @@ public class Client {
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } finally {
+                        try {
+                            in.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }).start();
@@ -56,6 +63,13 @@ public class Client {
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } finally {
+                        try {
+                            out.close();
+                            socket.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }).start();

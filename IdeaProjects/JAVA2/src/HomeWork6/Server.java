@@ -64,18 +64,13 @@ public class Server {
                 public void run() {
                     try {
                         while (true) {
-                            try {
-                                String stringOut = scanner.nextLine();
-                                if (!stringOut.isEmpty()) {
-                                    out.writeUTF(stringOut);
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            String stringOut = scanner.nextLine();
+                            if (!stringOut.isEmpty()) {
+                                out.writeUTF(stringOut);
                             }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
-
                     } finally {
                         try {
                             out.close();
@@ -85,7 +80,6 @@ public class Server {
                     }
                 }
             }).start();
-
 
         } catch (IOException e) {
             e.printStackTrace();
