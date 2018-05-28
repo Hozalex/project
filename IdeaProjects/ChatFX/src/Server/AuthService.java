@@ -8,9 +8,7 @@ public class AuthService {
     private static Statement statement;
 
     public static String getNickByLoginPass(String login, String pass) {
-        String sql = String.format("SELEct nickname from main\n" +
-                "where login = '%s'\n" +
-                "And password = '%s'", login, pass);
+        String sql = String.format("SELECT nickname FROM main where login = '%s' And password = '%s'", login, pass);
 
         try {
             ResultSet rs = statement.executeQuery(sql);
@@ -27,7 +25,7 @@ public class AuthService {
     public static void connect() throws SQLException {
         try {
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:usersDB.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:usersDB");
             statement = connection.createStatement();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

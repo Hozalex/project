@@ -28,7 +28,7 @@ public class Server {
             while (true) {
                 socket = server.accept();
                 System.out.println("Клиент подключился");
-                clients.add(new ClientHandler(this, socket));
+                new ClientHandler(this, socket);
             }
 
         } catch (IOException e) {
@@ -52,6 +52,16 @@ public class Server {
         for (ClientHandler o : clients) {
             o.sendMsg(msg);
         }
+    }
+
+    public void subscribe(ClientHandler client) {
+        clients.add(client);
+    }
+
+    public void unsubsribe(ClientHandler client) {
+        clients.remove(client);
+        System.out.println("Клиент отключился");
+        System.out.println("Клиентов осталось: " + clients.size());
     }
 
 }
