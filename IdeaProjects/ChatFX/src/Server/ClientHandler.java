@@ -11,6 +11,7 @@ public class ClientHandler {
     private Server server;
     private DataOutputStream out;
     private DataInputStream in;
+    private String nick;
 
     public ClientHandler(Server server, Socket socket) {
         try {
@@ -23,17 +24,35 @@ public class ClientHandler {
                 @Override
                 public void run() {
                     try {
+
                         while (true) {
                             String str = in.readUTF();
-                            if(str.equals("/end")) {
+                            if (str.startsWith("/auth")) {
+                                String[] tokens = str.split(" ");
+                                String newNick = AuthService.getNickByLoginPass(tokens[1], tokens[2]);
+
+                                if (newNick != null) {
+                                    sendMsg("/authok");
+                                    nick = newNick;
+                                    server.subscribe(ClientHandler.this);
+                                    break;
+                                }
+                            } else {
+                                sendMsg("неверный логин/пароль");
+                            }
+
+                        }
+
+                        while (true) {
+                            String str = in.readUTF();
+                            if (str.equals("/end")) {
                                 out.writeUTF("/serverClosed");
                                 break;
                             }
-                            server.broadcastMsg(str);
-                          //  System.out.println(str);
-                         //   out.writeUTF(str);
-                           // server
+                            server.broadcastMsg(nick + ": " + str);
                         }
+
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     } finally {
@@ -52,6 +71,7 @@ public class ClientHandler {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                        server.unsubsribe(ClientHandler.this);
                     }
 
                 }
