@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Солнечная погодка</string>
     <string name="weather_button">Проверить погоду</string>
+    <string name="share_button">Поделись погодой</string>
     <string-array name="weather">
         <item>+10 Сегодня Дождь</item>
         <item>+20 Сегодня Солнечно</item>
