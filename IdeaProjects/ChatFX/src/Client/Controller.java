@@ -51,6 +51,8 @@ public class Controller {
             bottomPanel.setVisible(false);
             bottomPanel.setManaged(false);
         } else {
+            chatArea.clear();
+            textField.requestFocus();
             upperPanel.setVisible(false);
             upperPanel.setManaged(false);
             bottomPanel.setVisible(true);
@@ -69,7 +71,6 @@ public class Controller {
                 @Override
                 public void run() {
                     try {
-
                         while (true) {
                             String str = in.readUTF();
                             if (str.startsWith("/authok")) {

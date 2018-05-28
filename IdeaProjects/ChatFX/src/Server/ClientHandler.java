@@ -13,6 +13,10 @@ public class ClientHandler {
     private DataInputStream in;
     private String nick;
 
+    public String getNick() {
+        return nick;
+    }
+
     public ClientHandler(Server server, Socket socket) {
         try {
             this.socket = socket;
@@ -31,11 +35,12 @@ public class ClientHandler {
                                 String[] tokens = str.split(" ");
                                 String newNick = AuthService.getNickByLoginPass(tokens[1], tokens[2]);
 
-                                if (newNick != null) {
+                                if (newNick != null && !server.subscribe(ClientHandler.this, newNick)) {
                                     sendMsg("/authok");
                                     nick = newNick;
-                                    server.subscribe(ClientHandler.this);
                                     break;
+                                } else {
+                                    sendMsg("такой nick уже залогинился или не существует");
                                 }
                             } else {
                                 sendMsg("неверный логин/пароль");
