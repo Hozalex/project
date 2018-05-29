@@ -2,6 +2,7 @@ package Client;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -32,6 +33,7 @@ public class Controller {
 
     @FXML
     PasswordField passwordField;
+    
 
     private Socket socket;
     private DataInputStream in;
@@ -51,6 +53,8 @@ public class Controller {
             bottomPanel.setVisible(false);
             bottomPanel.setManaged(false);
         } else {
+            chatArea.clear();
+            textField.requestFocus();
             upperPanel.setVisible(false);
             upperPanel.setManaged(false);
             bottomPanel.setVisible(true);
@@ -69,7 +73,6 @@ public class Controller {
                 @Override
                 public void run() {
                     try {
-
                         while (true) {
                             String str = in.readUTF();
                             if (str.startsWith("/authok")) {

@@ -54,8 +54,24 @@ public class Server {
         }
     }
 
-    public void subscribe(ClientHandler client) {
-        clients.add(client);
+    public void broadcastMsg(String msg, String nick) {
+        for (ClientHandler o : clients) {
+            if (o.getNick().equals(" " + nick))
+                o.sendMsg(msg);
+        }
+    }
+
+    public boolean subscribe(ClientHandler client, String nickName) {
+        boolean isSameNick = false;
+        for (ClientHandler o : clients) {
+            if (o.getNick().equals(nickName)) {
+                isSameNick = true;
+            }
+        }
+        if (!isSameNick) {
+            clients.add(client);
+        }
+        return isSameNick;
     }
 
     public void unsubsribe(ClientHandler client) {
