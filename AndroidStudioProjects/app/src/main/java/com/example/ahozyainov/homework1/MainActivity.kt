@@ -12,6 +12,8 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
+    private val CITY = "city"
+    private val MYSETTINGS = "mySettings"
     private var city: String = "default"
     private val cityKey = "city"
     private val sendRequestCode = 1
@@ -26,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        settings = getSharedPreferences("mySettings", Context.MODE_PRIVATE)
+
+        settings = getSharedPreferences(MYSETTINGS, Context.MODE_PRIVATE)
         spinner = findViewById(R.id.cities_spinner)
         button = findViewById(R.id.check_button)
         textView = findViewById(R.id.text_view_main)
@@ -42,7 +45,8 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == sendRequestCode) {
             if (resultCode == Activity.RESULT_OK) {
-                textView.text = data!!.getStringExtra("city")
+
+                textView.text = data!!.getStringExtra(CITY)
             }
         }
     }

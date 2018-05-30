@@ -10,6 +10,8 @@ import android.widget.TextView
 
 class WeatherActivity : AppCompatActivity() {
 
+    private val CITY = "city"
+    private lateinit var lastShare: String
     private lateinit var textViewWeather: TextView
     private lateinit var textViewCity: TextView
     private lateinit var imageView: ImageView
@@ -26,7 +28,7 @@ class WeatherActivity : AppCompatActivity() {
         imageView = findViewById(R.id.image_weather_activity)
         button = findViewById(R.id.share_button)
         weatherString = resources.getStringArray(R.array.weather)
-
+        lastShare = resources.getString(R.string.last_share_weather)
 
         var getIntent: Intent = intent
         if (getIntent != null) {
@@ -39,13 +41,6 @@ class WeatherActivity : AppCompatActivity() {
         })
     }
 
-    override fun onBackPressed() {
-        var sendIntent: Intent = intent
-        sendIntent.putExtra("city", "Последний город: " + textViewCity.text.toString())
-        setResult(Activity.RESULT_OK, intent)
-        finish()
-    }
-
     private fun shareWeather() {
         var shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.putExtra(Intent.EXTRA_TEXT, textViewCity.text.toString() + ": " +
@@ -55,6 +50,11 @@ class WeatherActivity : AppCompatActivity() {
         if (shareIntent.resolveActivity(packageManager) != null) {
             startActivity(shareIntent)
         }
+
+        var sendIntent: Intent = intent
+
+        sendIntent.putExtra(CITY, lastShare + " " + textViewCity.text.toString())
+        setResult(Activity.RESULT_OK, intent)
     }
 
     private fun showWeather(position: Int, idCity: String) {
