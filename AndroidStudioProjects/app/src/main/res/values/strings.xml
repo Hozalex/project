@@ -2,6 +2,7 @@
     <string name="app_name">Sunny Weather</string>
     <string name="weather_button">Check the weather</string>
     <string name="share_button">Share the Weather</string>
+    <string name="last_share_weather">You shared the weather: </string>
     <string-array name="weather">
         <item>+10 IT IS RAINY TODAY</item>
         <item>+20 IT IS SUNNY TODAY</item>
