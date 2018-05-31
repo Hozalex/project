@@ -10,7 +10,7 @@ import android.widget.TextView
 
 class WeatherActivity : AppCompatActivity() {
 
-    private val CITY = "city"
+    private val sharedTextKey = "sharedText"
     private lateinit var lastShare: String
     private lateinit var textViewWeather: TextView
     private lateinit var textViewCity: TextView
@@ -23,6 +23,7 @@ class WeatherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
+        println("WeatherActivity onCreate")
         textViewWeather = findViewById(R.id.text_view_weather)
         textViewCity = findViewById(R.id.text_view_city)
         imageView = findViewById(R.id.image_weather_activity)
@@ -41,6 +42,32 @@ class WeatherActivity : AppCompatActivity() {
         })
     }
 
+    override fun onStart() {
+        super.onStart()
+        println("WeatherActivity onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("WeatherActivity onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("WeatherActivity onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("WeatherActivity onStop")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("WeatherActivity onDestroy")
+    }
+
     private fun shareWeather() {
         var shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.putExtra(Intent.EXTRA_TEXT, textViewCity.text.toString() + ": " +
@@ -53,7 +80,7 @@ class WeatherActivity : AppCompatActivity() {
 
         var sendIntent: Intent = intent
 
-        sendIntent.putExtra(CITY, lastShare + " " + textViewCity.text.toString())
+        sendIntent.putExtra(sharedTextKey, lastShare + " " + textViewCity.text.toString())
         setResult(Activity.RESULT_OK, intent)
     }
 

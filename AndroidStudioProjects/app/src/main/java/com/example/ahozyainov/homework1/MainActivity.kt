@@ -6,13 +6,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    private val CITY = "city"
+    private val sharedTextKey = "sharedText"
+    private var sharedText = "default"
     private val MYSETTINGS = "mySettings"
     private var city: String = "default"
     private val cityKey = "city"
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        println("MainActivity onCreate")
 
         settings = getSharedPreferences(MYSETTINGS, Context.MODE_PRIVATE)
         spinner = findViewById(R.id.cities_spinner)
@@ -35,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         textView = findViewById(R.id.text_view_main)
         intent = Intent(this, WeatherActivity::class.java)
 
+        if (savedInstanceState != null) {
+            sharedText = savedInstanceState.getString(sharedTextKey)
+            textView.text = sharedText
+        }
         checkSettings()
 
         button.setOnClickListener({
@@ -42,20 +48,46 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == sendRequestCode) {
-            if (resultCode == Activity.RESULT_OK) {
+    override fun onStart() {
+        super.onStart()
+        println("MainActivity onStart")
+    }
 
-                textView.text = data!!.getStringExtra(CITY)
-            }
-        }
+    override fun onResume() {
+        super.onResume()
+        println("MainActivity onResume")
     }
 
     override fun onPause() {
         super.onPause()
+        println("MainActivity onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("MainActivity onStop")
         city = spinner.selectedItem.toString()
         settings.edit().putString(cityKey, city).apply()
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("MainActivity onDestroy")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putString(sharedTextKey, sharedText)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == sendRequestCode) {
+            if (resultCode == Activity.RESULT_OK) {
+                sharedText = data!!.getStringExtra(sharedTextKey)
+                textView.text = sharedText
+            }
+        }
     }
 
     private fun checkWeather() {
