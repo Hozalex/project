@@ -1,13 +1,9 @@
 package Server;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.SQLException;
-import java.util.Scanner;
 import java.util.Vector;
 
 public class Server {
@@ -47,34 +43,53 @@ public class Server {
         }
     }
 
-    public void broadcastMsg(String msg) {
+    public void broadcastMsg(ClientHandler from, String msg) {
         for (ClientHandler o : clients) {
-            o.sendMsg(msg);
-        }
-    }
-
-    public void broadcastMsg(String msg, String nick) {
-        for (ClientHandler o : clients) {
-            if (o.getNick().equals(" " + nick))
+            if (!o.isNickInBlacklist(from.getNick()))
                 o.sendMsg(msg);
         }
     }
 
-    public boolean subscribe(ClientHandler client, String nickName) {
+    public void sendMsgToNick(String msg, String nick) {
+        for (ClientHandler o : clients) {
+            if (o.getNick().equals(nick))
+                o.sendMsg(msg);
+        }
+    }
+
+    public void broadcastClientList() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("/clientlist ");
+        for (ClientHandler o : clients) {
+            sb.append(o.getNick() + " ");
+        }
+
+        String out = sb.toString();
+        for (ClientHandler o : clients) {
+            o.sendMsg(out);
+        }
+
+    }
+
+    public boolean isThereNick(String nickName) {
         boolean isSameNick = false;
         for (ClientHandler o : clients) {
             if (o.getNick().equals(nickName)) {
                 isSameNick = true;
             }
         }
-        if (!isSameNick) {
-            clients.add(client);
-        }
         return isSameNick;
+
+    }
+
+    public void subscribe(ClientHandler client) {
+        clients.add(client);
+        broadcastClientList();
     }
 
     public void unsubsribe(ClientHandler client) {
         clients.remove(client);
+        broadcastClientList();
         System.out.println("Клиент отключился");
         System.out.println("Клиентов осталось: " + clients.size());
     }

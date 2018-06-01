@@ -8,12 +8,19 @@ public class AuthService {
     private static Statement statement;
 
     public static String getNickByLoginPass(String login, String pass) {
-        String sql = String.format("SELECT nickname FROM main where login = '%s' And password = '%s'", login, pass);
+        String sql = String.format("SELECT nickname, password FROM main where login = '%s'", login);
 
         try {
             ResultSet rs = statement.executeQuery(sql);
+            int myHash = pass.hashCode();
             if (rs.next()) {
-                return rs.getString("nickname");
+                String nick = rs.getString(1);
+                int dbHash = rs.getInt(2);
+                if (myHash == dbHash) {
+                    return nick;
+                }
+//                return rs.getString("nickname");
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -32,6 +39,21 @@ public class AuthService {
         }
     }
 
+    public static void addUser(String login, String pass, String nick) {
+
+        try {
+            String query = "INSERT INTO main (login, password, nickname) VALUES (?,?,?)";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, login);
+            ps.setInt(2, pass.hashCode());
+            ps.setString(3, nick);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public static void disconnect() {
         try {
