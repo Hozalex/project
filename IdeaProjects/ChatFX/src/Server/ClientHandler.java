@@ -59,11 +59,20 @@ public class ClientHandler {
                             }
                             if (str.startsWith("/blacklist")) {
                                 String[] tokens = str.split(" ");
+                                AuthService.addUserBlacklist(tokens[1]);
                                 blackList.add(tokens[1]);
                                 sendMsg("вы добавили пользователя " + tokens[1] + " в черный список");
                                 for (String s : blackList) {
                                     System.out.println(nick + " добавил " + s);
                                 }
+                            }
+                            if (str.startsWith("/enable")) {
+                                String[] tokens = str.split(" ");
+                                AuthService.removeUserBlacklist(tokens[1]);
+                            }
+                            if (str.startsWith("/adduser")) {
+                                String[] tokens = str.split(" ");
+                                AuthService.addUser(tokens[1], tokens[2], tokens[3]);
                             }
                         } else {
                             server.broadcastMsg(this, "from " + nick + " " + str);
