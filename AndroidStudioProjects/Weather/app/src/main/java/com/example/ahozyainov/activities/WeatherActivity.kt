@@ -32,9 +32,8 @@ class WeatherActivity : AppCompatActivity() {
         lastShare = resources.getString(R.string.last_share_weather)
 
         var getIntent: Intent = intent
-        if (getIntent != null) {
-            showWeather(getIntent.getIntExtra(idSpinner, 5), getIntent.getStringExtra(cityKey))
-        }
+        showWeather(getIntent.getIntExtra(idSpinner, 5), getIntent.getStringExtra(cityKey))
+
 
         button.setOnClickListener({
             shareWeather()
