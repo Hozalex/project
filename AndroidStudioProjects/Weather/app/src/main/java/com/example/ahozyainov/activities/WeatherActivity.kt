@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -18,53 +20,43 @@ class WeatherActivity : AppCompatActivity() {
     private lateinit var button: Button
     private val idSpinner = "idSpinner"
     private val cityKey = "city"
+    private val checkedBoxText = "checkedBoxText"
+    private val isCheckedBox = "checkedBox"
     private lateinit var weatherString: Array<String>
+    private lateinit var textViewPressure: TextView
+    private lateinit var textViewTomorrowForecast: TextView
+    private lateinit var textViewWeekForecast: TextView
+    private lateinit var checkPressure: String
+    private lateinit var checkTomorrow: String
+    private lateinit var checkWeek: String
+    private lateinit var getIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
-        println("WeatherActivity onCreate")
+
         textViewWeather = findViewById(R.id.text_view_weather)
         textViewCity = findViewById(R.id.text_view_city)
         imageView = findViewById(R.id.image_weather_activity)
         button = findViewById(R.id.share_button)
         weatherString = resources.getStringArray(R.array.weather)
+        textViewPressure = findViewById(R.id.text_view_pressure)
+        textViewTomorrowForecast = findViewById(R.id.text_view_tomorrow_forecast)
+        textViewWeekForecast = findViewById(R.id.text_view_week_forecast)
+        checkPressure = resources.getString(R.string.pressure)
+        checkTomorrow = resources.getString(R.string.pressure)
+        checkWeek = resources.getString(R.string.pressure)
+        getIntent = intent
         lastShare = resources.getString(R.string.last_share_weather)
 
-        var getIntent: Intent = intent
-        showWeather(getIntent.getIntExtra(idSpinner, 5), getIntent.getStringExtra(cityKey))
 
+        showWeather(getIntent.getIntExtra(idSpinner, 5), getIntent.getStringExtra(cityKey))
+        showForecast()
 
         button.setOnClickListener({
             shareWeather()
 
         })
-    }
-
-    override fun onStart() {
-        super.onStart()
-        println("WeatherActivity onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        println("WeatherActivity onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        println("WeatherActivity onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        println("WeatherActivity onStop")
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        println("WeatherActivity onDestroy")
     }
 
     private fun shareWeather() {
@@ -99,8 +91,28 @@ class WeatherActivity : AppCompatActivity() {
             textViewWeather.setBackgroundResource(R.color.colorBackground)
         }
 
-
     }
 
+    private fun showForecast() {
+
+        if (getIntent.getIntExtra(checkPressure, 3) == 1) {
+            println("checkPressure - got ")
+            textViewPressure.text = resources.getString(R.string.pressure_value)
+            textViewPressure.setBackgroundResource(R.color.colorBackground)
+        }
+        if (getIntent.getIntExtra(checkTomorrow, 3) == 1) {
+            println("checkTomorrow - got ")
+            textViewTomorrowForecast.text = resources.getString(R.string.tomorrow_weather)
+            textViewTomorrowForecast.setBackgroundResource(R.color.colorBackground)
+        }
+        if (getIntent.getIntExtra(checkWeek, 3) == 1) {
+            println("checkWeek - got ")
+            textViewWeekForecast.text = resources.getString(R.string.week_weather)
+            textViewWeekForecast.setBackgroundResource(R.color.colorBackground)
+        }
+    }
 
 }
+
+
+

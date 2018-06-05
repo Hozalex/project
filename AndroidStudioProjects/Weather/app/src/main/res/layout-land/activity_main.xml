@@ -31,6 +31,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/text_view_main">
+
+        <CheckBox
+            android:id="@+id/checkbox_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure" />
+
+        <CheckBox
+            android:id="@+id/checkbox_tomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tomorrow_forecast" />
+
+        <CheckBox
+            android:id="@+id/checkbox_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/week_forecast" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/text_view_main"
         android:layout_width="match_parent"
